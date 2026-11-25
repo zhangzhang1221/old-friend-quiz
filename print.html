@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>后会友期 · 旧友人格测试（印刷版）</title>
+<style>
+@page { size: A4; margin: 16mm 15mm 13mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; color: #241F19;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 9.6pt; line-height: 1.8;
+}
+.sheet {
+  display: flex; flex-direction: column;
+  min-height: 265mm; page-break-after: always; position: relative;
+}
+.sheet:last-child { page-break-after: auto; }
+.runhead {
+  display: flex; justify-content: space-between;
+  font-size: 7.2pt; letter-spacing: .14em; color: #8D7F6F;
+  border-bottom: .5pt solid #DCCEB9; padding-bottom: 2.6mm; margin-bottom: 7mm;
+}
+.sheetfoot {
+  margin-top: auto; padding-top: 2.4mm;
+  display: flex; justify-content: flex-end;
+  font-size: 7pt; letter-spacing: .14em; color: #9A8D7E;
+}
+h1, h2, h3, .cover-sub, .cname, .cquote, .inner p, .pairnames { font-family: "Songti SC", "STSong", "Noto Serif SC", serif; font-weight: 600; }
+
+/* cover */
+.cover .cover-top { margin-top: 12mm; }
+.kicker { font-size: 7.6pt; letter-spacing: .28em; color: #9A8D7E; margin: 0 0 14mm; }
+.cover h1 { font-size: 62pt; line-height: 1; margin: 0; letter-spacing: .06em; }
+.cover h1 .hit { color: #B4533A; }
+.cover-sub { font-size: 17pt; letter-spacing: .5em; color: #4E443A; margin: 7mm 0 0; font-weight: 400; }
+.cover-lead { font-family: "Songti SC", serif; font-size: 13pt; line-height: 2; color: #6B5F52; margin: 13mm 0 0; }
+.cover-body { margin-top: 12mm; }
+.cover-text p { margin: 0 0 4mm; font-size: 9.4pt; line-height: 1.95; color: #4E443A; max-width: 150mm; }
+.howto { margin-top: 8mm; border: .6pt solid #E0D3BF; border-radius: 2mm; padding: 5mm 6mm; background: #FBF5E9; }
+.howto h3 { font-size: 9pt; letter-spacing: .22em; margin: 0 0 3mm; color: #6B5F52; }
+.howto ol { margin: 0; padding-left: 4.5mm; font-size: 8.8pt; line-height: 1.85; color: #4E443A; }
+.howto li { margin-bottom: 1.6mm; }
+.cover-meta { display: flex; gap: 3mm; margin-top: 8mm; flex-wrap: wrap; }
+.cover-meta span { font-size: 7.6pt; letter-spacing: .12em; color: #6B5F52; border: .5pt solid #DCCEB9; border-radius: 99px; padding: 1.2mm 3mm; }
+.cover-note { font-size: 7.2pt; line-height: 1.85; color: #9A8D7E; border-top: .5pt solid #E4D8C6; padding-top: 4mm; margin: 9mm 0 0; }
+
+/* questions */
+.chapter { font-size: 15pt; letter-spacing: .16em; margin: 0; color: #241F19; }
+.chapter-sub { font-size: 8.6pt; color: #9A8D7E; margin: 2mm 0 8mm; }
+.q { margin-bottom: 7.6mm; page-break-inside: avoid; }
+.qtext { display: flex; gap: 4mm; margin: 0 0 3.4mm; font-size: 9.9pt; line-height: 1.78; }
+.qtext b { font-family: "Songti SC", serif; font-size: 10.6pt; color: #B4533A; font-weight: 600; flex: 0 0 8mm; }
+.opts { margin-left: 12mm; }
+.opt { display: flex; gap: 3mm; margin: 0 0 1.8mm; font-size: 9.3pt; line-height: 1.72; color: #3B332B; }
+.opt i { font-style: normal; flex: 0 0 5mm; height: 5mm; line-height: 4.9mm; text-align: center; border: .5pt solid #CFC0A9; border-radius: 50%; font-size: 7pt; color: #8D7F6F; margin-top: .8mm; }
+.pick { text-align: right; margin: 2.6mm 0 0; font-size: 7.4pt; letter-spacing: .18em; color: #A2937F; }
+
+/* score */
+.sec { font-size: 18pt; margin: 0 0 4mm; letter-spacing: .04em; }
+.lead { font-size: 8.8pt; color: #4E443A; margin: 0 0 5mm; max-width: 165mm; }
+table.score { width: 100%; border-collapse: collapse; font-size: 7.4pt; }
+table.score th, table.score td { border: .5pt solid #DCCEB9; padding: 1.1mm 1.8mm; text-align: left; vertical-align: top; line-height: 1.42; }
+table.score thead th { background: #F3EADA; font-weight: 600; letter-spacing: .1em; font-size: 7pt; color: #6B5F52; }
+table.score tbody th { width: 11mm; text-align: center; font-weight: 500; color: #8D7F6F; background: #FBF5E9; }
+table.score td b { font-weight: 700; color: #241F19; }
+.score-how { margin-top: 6mm; }
+.score-how h3, .closing h3 { font-size: 8.6pt; letter-spacing: .22em; margin: 0 0 2.4mm; color: #6B5F52; }
+.score-how ol { margin: 0; padding-left: 4.5mm; font-size: 8.2pt; line-height: 1.8; color: #4E443A; }
+.score-how li { margin-bottom: 1mm; }
+
+/* character */
+.chead { border-bottom: 1pt solid var(--c); padding-bottom: 4.5mm; margin-bottom: 5mm; }
+.type-no { font-size: 7.2pt; letter-spacing: .26em; color: var(--c); margin: 0; }
+.cname { font-size: 31pt; margin: 2mm 0 1mm; color: var(--c); letter-spacing: .06em; }
+.crole { margin: 0; font-size: 8.6pt; letter-spacing: .16em; color: #6B5F52; }
+.cquote { font-size: 12pt; line-height: 1.8; color: #241F19; margin: 4.6mm 0 2mm; padding-left: 4mm; border-left: 1.6pt solid var(--c); }
+.ckw { font-size: 7.6pt; letter-spacing: .18em; color: var(--c); margin: 0; }
+.charpage h3 { font-size: 8.2pt; letter-spacing: .2em; color: #8D7F6F; margin: 4.6mm 0 1.8mm; font-weight: 500; font-family: "PingFang SC", sans-serif; }
+.charpage p { margin: 0; font-size: 9.4pt; line-height: 1.95; color: #3B332B; }
+.inner { background: var(--tint); border-radius: 2mm; padding: 4mm 5mm; margin: 4.5mm 0 1.5mm; }
+.inner span { font-size: 7pt; letter-spacing: .2em; color: var(--c); }
+.inner p { font-size: 11.5pt; line-height: 1.8; margin-top: 1mm; color: #241F19; }
+ol.route { margin: 0; padding-left: 4.5mm; font-size: 9pt; line-height: 1.8; color: #3B332B; }
+ol.route li { margin-bottom: 1mm; }
+.twocol { display: flex; gap: 6mm; }
+.twocol > div { flex: 1; }
+.twocol p b { color: var(--c); }
+.pair { font-size: 9pt; line-height: 1.8; }
+.pair span { color: #6B5F52; font-size: 8.6pt; }
+.scene { margin-top: 4mm !important; padding-top: 3mm; border-top: .5pt solid #E4D8C6; font-size: 8.5pt !important; color: #6B5F52 !important; line-height: 1.8; }
+.scene b { letter-spacing: .16em; font-size: 7.2pt; color: #8D7F6F; font-weight: 500; }
+
+/* pairs */
+.pairlist { display: grid; gap: 4.2mm; }
+.pairrow { border: .6pt solid #E0D3BF; border-left: 2.4pt solid var(--c); border-radius: 1.6mm; padding: 4mm 5mm; background: #FDF9F0; }
+.pairnames { font-size: 14pt; margin: 0; letter-spacing: .04em; }
+.pairnames span { font-size: 8pt; color: #9A8D7E; margin: 0 3mm; font-family: "PingFang SC", sans-serif; }
+.pairtitle { font-size: 9pt; color: var(--c); letter-spacing: .12em; margin: 1mm 0 1.6mm; }
+.pairrow > p:last-child { font-size: 8.7pt; line-height: 1.8; color: #4E443A; margin: 0; }
+.closing { margin-top: 8mm; border-top: .8pt solid #DCCEB9; padding-top: 6mm; }
+.closing p { font-size: 9.2pt; line-height: 1.95; color: #3B332B; margin: 0 0 3mm; }
+.closing .sign { font-family: "Songti SC", serif; font-size: 10.5pt; color: #6B5F52; margin-top: 6mm; }
+</style>
+</head>
+<body>
+<div class="sheet cover">
+
+<div class="cover-top">
+    <p class="kicker">非官方二创 · 娱乐向人格测试</p>
+    <h1>后会<span class="hit">友</span>期</h1>
+    <p class="cover-sub">旧友人格测试</p>
+    <p class="cover-lead">你们是怎么走散的，<br>又该怎么走回来。</p>
+  </div>
+  <div class="cover-body">
+    <div class="cover-text"><p>《后会友期》把四对断了联系的旧友放进同一趟高原旅行：收手机、低经费、不劝分也不劝和。有人当场翻脸，有人抱头痛哭，有人终于把十年前那句话说了出去。</p><p>我们把这八个人拆成八种「旧友人格」。不是给你贴标签，而是帮你看清：你在关系里习惯站在哪个位置，你的裂缝从哪里开始，以及——如果要走回去，第一步该迈向哪里。</p></div>
+    <div class="howto">
+      <h3>怎么玩</h3>
+      <ol>
+        <li>十六道题，每题只选一个：选你<b>第一反应</b>会做的那一个，不要选“应该做”的那一个。</li>
+        <li>题目按“重逢—同行—对质—和解”四章推进，场景都改编自节目里的真实处境。</li>
+        <li>每题末尾勾下你的选择，翻到第 6 页计分：主选 2 分、次选 1 分，最高分就是你的旧友人格。</li>
+        <li>第 7 页起是八种人格的完整解析，也可以先读解析，再回头做题。</li>
+      </ol>
+    </div>
+    <div class="cover-meta"><span>16 道题</span><span>8 种人格</span><span>4 组关系</span><span>约 4 分钟</span></div>
+  </div>
+  <p class="cover-note">本测试为非官方二创，与节目及嘉宾无关。人格设定基于节目公开播出的片段与公开讨论，指向关系类型，不构成对任何真实个人的评价，也不构成心理诊断。结果仅供娱乐与自我观察。</p>
+
+</div>
+<div class="sheet qpage">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第一部分 · 题目</span></div>
+<h2 class="chapter">第一章 · 重逢</h2>
+     <p class="chapter-sub">两年、四年、十年。有人先开口，有人假装没看见。</p>
+     <div class="q">
+        <p class="qtext"><b>01</b><span>一个四年没联系、当年不欢而散的朋友，突然发来消息：「最近怎么样？有空一起出去走走吧。」</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>立刻回「好啊」，顺手把路线、住宿、备用方案都查好了。</span></p><p class="opt"><i>B</i><span>先回一句「怎么突然想起我？」，想弄清对方到底想干什么。</span></p><p class="opt"><i>C</i><span>盯着屏幕想了很久，最后回：「最近有点忙。」</span></p><p class="opt"><i>D</i><span>直接问：「当年那件事，你现在怎么想？」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>02</b><span>出发前，你想给这次见面带点什么。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>带上这些年攒下的、和对方有关的东西：旧照片、票根、他随口提过的小物件。</span></p><p class="opt"><i>B</i><span>什么都不带。见了面再说，别搞得太隆重。</span></p><p class="opt"><i>C</i><span>带一份清单：这些年我受的委屈、想问的话，一条条写好。</span></p><p class="opt"><i>D</i><span>带一份礼物，但提前想好「如果他不要，我该怎么收场」。</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>03</b><span>见面第一分钟，空气有点僵。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>你先开口，用玩笑把气氛捅破：「哟，还活着呢。」</span></p><p class="opt"><i>B</i><span>你低头看手机，等对方先说话。</span></p><p class="opt"><i>C</i><span>你直接说：「别绕了，我今天来就是想把话说清楚。」</span></p><p class="opt"><i>D</i><span>你先观察对方的脸色，判断他今天心情如何，再决定说什么。</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>04</b><span>对方提起当年那件事，版本和你记得的完全不一样。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>当场纠正：「不对，明明是……」把时间线一条条摆出来。</span></p><p class="opt"><i>B</i><span>笑一下，说「是吗」，心里把那页翻过去了。</span></p><p class="opt"><i>C</i><span>有点急：「你怎么能这么想？我从来没……」</span></p><p class="opt"><i>D</i><span>不争，只把他说的每个字记下来，回去慢慢想。</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div>
+<div class="sheetfoot"><span>02 / 15</span></div>
+</div>
+<div class="sheet qpage">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第一部分 · 题目</span></div>
+<h2 class="chapter">第二章 · 同行</h2>
+     <p class="chapter-sub">八个人、三千块、一间房。旅行会把人的习惯放大。</p>
+     <div class="q">
+        <p class="qtext"><b>05</b><span>八个人、三千块经费，你和对方被安排当第一站领队。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>先把预算列出来，按人头分好，谁也别多花。</span></p><p class="opt"><i>B</i><span>先问每个人需要什么，再决定买什么。</span></p><p class="opt"><i>C</i><span>看到便宜的先买下，反正用得上。</span></p><p class="opt"><i>D</i><span>「你们定，我跟着走就行。」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>06</b><span>对方没跟你商量，就替你做了一个决定。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>当场问：「你为什么不先问我？」</span></p><p class="opt"><i>B</i><span>不说，但心里记下：下次我也这样。</span></p><p class="opt"><i>C</i><span>说「没事」，然后一个人消化很久。</span></p><p class="opt"><i>D</i><span>直接指出问题，语气不太好听。</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>07</b><span>高原上你有点不舒服，对方问「你还好吗」。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>「没事，我能行。」然后继续走。</span></p><p class="opt"><i>B</i><span>「不太好，你帮我拿一下氧气。」</span></p><p class="opt"><i>C</i><span>「我没事，你顾好你自己。」</span></p><p class="opt"><i>D</i><span>反问他：「你是不是也不舒服？」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>08</b><span>晚上分房，只剩一间双人间和一张沙发。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>主动说「我睡沙发」，然后真的抱着被子去了客厅。</span></p><p class="opt"><i>B</i><span>把房卡塞给对方：「你睡床，我打地铺。」</span></p><p class="opt"><i>C</i><span>「都行，你们定。」站在门口等别人安排。</span></p><p class="opt"><i>D</i><span>半开玩笑：「要不咱俩挤挤？」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div>
+<div class="sheetfoot"><span>03 / 15</span></div>
+</div>
+<div class="sheet qpage">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第一部分 · 题目</span></div>
+<h2 class="chapter">第三章 · 对质</h2>
+     <p class="chapter-sub">旧账被翻出来的时候，你才发现自己一直记着。</p>
+     <div class="q">
+        <p class="qtext"><b>09</b><span>有人当着所有人的面说你：「你太装了，大家都这么觉得。」</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>把筷子放下，什么都没说。</span></p><p class="opt"><i>B</i><span>当场反问：「你倒是说说，我装什么了？」</span></p><p class="opt"><i>C</i><span>笑一下，把话接过来，四两拨千斤。</span></p><p class="opt"><i>D</i><span>替对方打圆场：「行了行了，先吃饭。」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>10</b><span>对谈时，对方突然拿出一份「证据」——转账记录、聊天截图、当年的账。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>脑子一片空白，只想问：「你带这个来，是想干什么？」</span></p><p class="opt"><i>B</i><span>也把自己的账摆出来，一条条对。</span></p><p class="opt"><i>C</i><span>「钱我可以还，但我们的关系不是这么算的。」</span></p><p class="opt"><i>D</i><span>不看那些东西，只问：「这十年，你到底怎么想我的？」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>11</b><span>对方说：「这些年，我画地为牢。」</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>听不懂这句话，只想问：「那你到底做没做？」</span></p><p class="opt"><i>B</i><span>心里一酸，嘴上说：「都过去了。」</span></p><p class="opt"><i>C</i><span>趁机把话挑明：「那你今天给我一句准话。」</span></p><p class="opt"><i>D</i><span>沉默很久，说：「我也是。」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>12</b><span>你发现，对方这些年一直在默默关注你。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>有点感动，也有点愧疚：「你怎么不早说？」</span></p><p class="opt"><i>B</i><span>第一反应是警惕：「他是不是有什么目的？」</span></p><p class="opt"><i>C</i><span>不太敢信：「真的吗？我不值得。」</span></p><p class="opt"><i>D</i><span>装作不在意：「哦，是吗。」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div>
+<div class="sheetfoot"><span>04 / 15</span></div>
+</div>
+<div class="sheet qpage">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第一部分 · 题目</span></div>
+<h2 class="chapter">第四章 · 和解</h2>
+     <p class="chapter-sub">不是所有关系都要和好，但每段关系都值得一个交代。</p>
+     <div class="q">
+        <p class="qtext"><b>13</b><span>对方在你面前哭了。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>手足无措，最后递了张纸巾，什么也没说。</span></p><p class="opt"><i>B</i><span>蹲下来，把人抱住：「哭吧，我在。」</span></p><p class="opt"><i>C</i><span>一边安慰一边讲道理：「其实这件事是这样的……」</span></p><p class="opt"><i>D</i><span>也跟着哭了，两个人哭成一团。</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>14</b><span>有人对你说：「我最怕别人关心我。」</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>「那我就不关心，我就在这儿坐着。」</span></p><p class="opt"><i>B</i><span>「你怕什么？关心你又不要钱。」</span></p><p class="opt"><i>C</i><span>什么都不说，去给他倒了杯热水。</span></p><p class="opt"><i>D</i><span>「那你得学着接受，人不能总一个人扛。」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>15</b><span>节目快结束了，对方问：「我们以后，还算朋友吗？」</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>「算。以前的事翻篇，以后常联系。」</span></p><p class="opt"><i>B</i><span>「我需要时间。但我不会拉黑你。」</span></p><p class="opt"><i>C</i><span>「不算了。但我谢谢你陪我走这一程。」</span></p><p class="opt"><i>D</i><span>「你说算就算。」</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div><div class="q">
+        <p class="qtext"><b>16</b><span>回程的车上，你戴着耳机，看着窗外。</span></p>
+        <div class="opts"><p class="opt"><i>A</i><span>你在想：当年那句话，我到底哪里说错了。</span></p><p class="opt"><i>B</i><span>你在想：下次见面，我要带什么。</span></p><p class="opt"><i>C</i><span>你在想：其实我早就原谅他了，只是没说。</span></p><p class="opt"><i>D</i><span>你在想：这趟来对了，但我不想再来一次。</span></p></div>
+        <p class="pick">我的选择　○ A　○ B　○ C　○ D</p>
+      </div>
+<div class="sheetfoot"><span>05 / 15</span></div>
+</div>
+<div class="sheet scorepage">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第二部分 · 计分</span></div>
+<h2 class="sec">计分表</h2>
+   <p class="lead">每一格有两个名字：<b>加粗的是主选，记 2 分</b>；下面那个是次选，记 1 分。把十六道题的勾选逐题累加，八位角色各自的满分是 24 分。</p>
+   <table class="score">
+     <thead><tr><th>题号</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+     <tbody><tr><th>01</th><td><b>张萌</b><br>王子璇</td><td><b>文吉儿</b><br>许飞</td><td><b>马天宇</b><br>青稚</td><td><b>厉娜</b><br>白小纯</td></tr><tr><th>02</th><td><b>许飞</b><br>张萌</td><td><b>白小纯</b><br>马天宇</td><td><b>文吉儿</b><br>厉娜</td><td><b>王子璇</b><br>青稚</td></tr><tr><th>03</th><td><b>白小纯</b><br>张萌</td><td><b>马天宇</b><br>青稚</td><td><b>厉娜</b><br>文吉儿</td><td><b>王子璇</b><br>许飞</td></tr><tr><th>04</th><td><b>许飞</b><br>文吉儿</td><td><b>马天宇</b><br>张萌</td><td><b>厉娜</b><br>白小纯</td><td><b>青稚</b><br>王子璇</td></tr><tr><th>05</th><td><b>张萌</b><br>文吉儿</td><td><b>许飞</b><br>白小纯</td><td><b>青稚</b><br>厉娜</td><td><b>王子璇</b><br>马天宇</td></tr><tr><th>06</th><td><b>白小纯</b><br>许飞</td><td><b>文吉儿</b><br>青稚</td><td><b>王子璇</b><br>马天宇</td><td><b>厉娜</b><br>张萌</td></tr><tr><th>07</th><td><b>青稚</b><br>文吉儿</td><td><b>白小纯</b><br>张萌</td><td><b>马天宇</b><br>许飞</td><td><b>厉娜</b><br>王子璇</td></tr><tr><th>08</th><td><b>青稚</b><br>马天宇</td><td><b>张萌</b><br>文吉儿</td><td><b>王子璇</b><br>许飞</td><td><b>白小纯</b><br>厉娜</td></tr><tr><th>09</th><td><b>青稚</b><br>马天宇</td><td><b>厉娜</b><br>白小纯</td><td><b>文吉儿</b><br>张萌</td><td><b>许飞</b><br>王子璇</td></tr><tr><th>10</th><td><b>王子璇</b><br>厉娜</td><td><b>文吉儿</b><br>青稚</td><td><b>张萌</b><br>马天宇</td><td><b>许飞</b><br>白小纯</td></tr><tr><th>11</th><td><b>厉娜</b><br>许飞</td><td><b>马天宇</b><br>张萌</td><td><b>白小纯</b><br>文吉儿</td><td><b>青稚</b><br>王子璇</td></tr><tr><th>12</th><td><b>张萌</b><br>厉娜</td><td><b>文吉儿</b><br>许飞</td><td><b>王子璇</b><br>青稚</td><td><b>白小纯</b><br>马天宇</td></tr><tr><th>13</th><td><b>青稚</b><br>王子璇</td><td><b>马天宇</b><br>张萌</td><td><b>许飞</b><br>文吉儿</td><td><b>厉娜</b><br>白小纯</td></tr><tr><th>14</th><td><b>马天宇</b><br>王子璇</td><td><b>白小纯</b><br>厉娜</td><td><b>青稚</b><br>许飞</td><td><b>张萌</b><br>文吉儿</td></tr><tr><th>15</th><td><b>张萌</b><br>白小纯</td><td><b>许飞</b><br>马天宇</td><td><b>王子璇</b><br>青稚</td><td><b>文吉儿</b><br>厉娜</td></tr><tr><th>16</th><td><b>许飞</b><br>王子璇</td><td><b>张萌</b><br>厉娜</td><td><b>马天宇</b><br>白小纯</td><td><b>文吉儿</b><br>青稚</td></tr></tbody>
+   </table>
+   <div class="score-how">
+     <h3>怎么读结果</h3>
+     <ol>
+       <li>最高分的角色，就是你的旧友人格。它描述的是你在关系里的默认姿势，不是你的全部。</li>
+       <li>第二名是你的“副人格”：往往是你羡慕、或者被逼急时会变成的样子。</li>
+       <li>分数接近（相差 2 分以内）说明你处在两种模式之间，可以两张解析一起看。</li>
+       <li>最低分的那一位，通常是你最不理解、也最容易在关系里撞上的人。</li>
+     </ol>
+   </div>
+<div class="sheetfoot"><span>06 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#B4533A;--tint:#F7E9E2">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 1 型 / 共 8 型 · ZHANG MENG</p>
+      <h2 class="cname">张萌</h2>
+      <p class="crole">主动型修补者 · 关系里那个先开口的人</p>
+      <p class="cquote">“关系断了没关系，我这边一直开着门。”</p>
+      <p class="ckw">主动 · 记挂 · 姐感</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你不怕当先开口的那个人。别人还在纠结「会不会打扰」，你已经把路线、住宿、备用方案排好了。你表达在乎的方式很具体：记得对方随口提过的东西，十年里每到一个地方，就带一只杯子回来。你觉得朋友之间不必算得太清，你能给的，你就给了。人群里你自然成了拿主意的那一个，哪怕你嘴上说「我都行」。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你的问题从来不是不够真诚，是真诚太有分量。你用资源、经验和安排去爱一个人，对方收到的却可能是「我欠你」。你也有脾气——一句「那以后我的戏你都别来」，说出口是气话，落在对方心里却成了判决。你习惯把台阶留在原地，却不习惯告诉对方：我在这儿等你。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“我不需要你回报，我只想知道，你还需要我。”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>把「我帮你安排」换成「你想怎么安排」，把选择权还回去。</li><li>说一次不带解决方案的心里话，哪怕说完就后悔。</li><li>允许对方暂时不回应。等待不是失职，是给关系留白。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>白小纯</b>　他直来直去，不消耗你的好意；你替他兜底，他也不会觉得欠你。</p></div>
+      <div><h3>最容易翻车</h3><p><b>文吉儿</b>　两个人都想握方向盘，最后比的不是谁对，是谁更狠。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">张萌 × 马天宇　「一个习惯给，一个习惯退」<br><span>她越用力，他越觉得欠；他越沉默，她越确认自己被拒绝。这段关系不缺真心，缺的是把「我为你好」翻译成「我需要你」。</span></p>
+    <p class="scene"><b>节目里的你</b>　十年马克杯、那句「以后我的戏你都别来」，还有观察室里那句「其实更适合当姐弟」——你给的是机会，他要的是体面。</p>
+<div class="sheetfoot"><span>07 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#6F8FA6;--tint:#EAF1F4">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 2 型 / 共 8 型 · MA TIANYU</p>
+      <h2 class="cname">马天宇</h2>
+      <p class="crole">温柔的回避者 · 用后退保护别人的人</p>
+      <p class="cquote">“我不是不在乎，我是怕我的在乎变成你的负担。”</p>
+      <p class="ckw">温柔 · 后退 · 体面</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你能接住别人的情绪，却不擅长交出自己的。看到有人缩在沙发上，你不追问、不评判，只是蹲下来把人抱住，说「今晚跟我睡吧」。你对人的好是安静的、不给压力的。可一到自己这里，你就本能地往后退：状态不好时先婉拒，怕拖累别人；想和好时写下「加油」，却没让它被看见。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你的退让常常被读成冷淡。你以为「不麻烦你」是体贴，对方收到的是「你不需要我」。你把最难的话留给自己消化，于是关系里最关键的那句解释，永远卡在喉咙里。别人不是不肯原谅你，是根本不知道发生了什么。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“你别问我怎么了，就坐在我旁边。”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>把那句「加油」发出去，别让善意停在草稿箱。</li><li>说一次「我当时很难，不是针对你」，把沉默翻译成人话。</li><li>允许别人为你做点什么。接受，本身也是一种给。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>青稚</b>　你们都不需要对方多说，一个眼神就能安静地待着。</p></div>
+      <div><h3>最容易翻车</h3><p><b>厉娜</b>　她要一句明白话，你给的是一段沉默；她越追问，你越退。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">马天宇 × 张萌　「一个习惯给，一个习惯退」<br><span>她越用力，他越觉得欠；他越沉默，她越确认自己被拒绝。这段关系不缺真心，缺的是把「我为你好」翻译成「我需要你」。</span></p>
+    <p class="scene"><b>节目里的你</b>　蹲下来抱住蒙着毯子的青稚，说「今晚你跟我睡吧」。你从不问「你怎么了」，可你自己最需要被这样对待。</p>
+<div class="sheetfoot"><span>08 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#C08A2E;--tint:#F8EEDA">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 3 型 / 共 8 型 · LI NA</p>
+      <h2 class="cname">厉娜</h2>
+      <p class="crole">直给的讨说法者 · 把心事写在脸上的人</p>
+      <p class="cquote">“我不要你解释得多好听，我要一句真话。”</p>
+      <p class="ckw">直给 · 认死理 · 单纯</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你对人不太设防，喜欢就是喜欢——当年能在镜头前喊出「于公于私、于情于理，都选许飞」。也正因为这样，被辜负的时候你伤得直接、问得直接。你不擅长拐弯，心里堵着就要一个说法，哪怕场面难看。你其实很好哄：一顿好吃的、一句实话，你的气就消了一半。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你的笃定来得太快。你把「这件事我只告诉过你」当成了证据，把结论放在了求证前面。十五年里，你反复回放同一个版本，越回放越真。你不是不讲理，你只是太害怕——怕自己当年真的信错了人。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“你只要说一句「不是我」，我就信。”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>定罪之前先问一句「是不是你」，给真相一个开口的机会。</li><li>允许自己的记忆出错。人是会记岔的，包括你。</li><li>把「你欠我一个道歉」换成「我当时有多难」。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>白小纯</b>　都是直球，吵完就翻篇，谁也不记仇。</p></div>
+      <div><h3>最容易翻车</h3><p><b>许飞</b>　你要的是态度，她给的是逻辑；她越解释，你越觉得她在狡辩。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">厉娜 × 许飞　「一个要真话，一个要清白」<br><span>一个要的是「你告诉我不是你」，一个要的是「你别让我认我没做过的事」。两个人都在要同一件东西——被对方相信，却用了对方听不懂的语言。</span></p>
+    <p class="scene"><b>节目里的你</b>　「飞雪CP」那声喊话、七年空白、三封律师函。你要的从来不是赔偿，是有人认真告诉你：那不是你的错。</p>
+<div class="sheetfoot"><span>09 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#5B7A64;--tint:#E9F0E8">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 4 型 / 共 8 型 · XU FEI</p>
+      <h2 class="cname">许飞</h2>
+      <p class="crole">讲逻辑的守夜人 · 把委屈讲成道理的人</p>
+      <p class="cquote">“我可以为你的痛苦道歉，但我不认这个罪名。”</p>
+      <p class="ckw">克制 · 自尊 · 长情</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你念旧，而且念得很具体——同住的细节、当年的语气，你都记得。你表达感情的方式偏理性：把前因后果讲清楚，把责任边界划明白。被误会的时候，你第一反应不是吵，是解释；解释不通，你就把自己关起来，说一句「我画地为牢啊」。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你相信「讲清楚就好了」，可情绪不走在道理的路上。你越完整地解释，对方越觉得你在辩解；你越强调「我没做过」，对方越听见「你的痛苦不重要」。你把委屈熬成了逻辑，却忘了先接住对方的眼泪。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“我认我让你难过，但别让我认我没做过的事。”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>先共情，再讲事实：「我知道你很难」要放在「我没做过」前面。</li><li>允许自己不被相信，也允许关系暂停一阵。</li><li>把「证据」换成「我当时的处境」，讲人话，不讲案卷。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>马天宇</b>　都不爱吵，能安静地待着，谁也不用表演情绪。</p></div>
+      <div><h3>最容易翻车</h3><p><b>厉娜</b>　她要一句准话，你给一份申辩；你们说的都对，就是不在一个频道。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">许飞 × 厉娜　「一个要真话，一个要清白」<br><span>一个要的是「你告诉我不是你」，一个要的是「你别让我认我没做过的事」。两个人都在要同一件东西——被对方相信，却用了对方听不懂的语言。</span></p>
+    <p class="scene"><b>节目里的你</b>　「我画地为牢啊，厉娜」。这句话你说得很轻，却是这些年最重的一句。</p>
+<div class="sheetfoot"><span>10 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#8A4A62;--tint:#F4E6EB">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 5 型 / 共 8 型 · WEN JI'ER</p>
+      <h2 class="cname">文吉儿</h2>
+      <p class="crole">带账本的掌控者 · 习惯站在高位的人</p>
+      <p class="cquote">“我可以给，但你不能要。”</p>
+      <p class="ckw">掌控 · 体面 · 试探</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你习惯站在关系的高位，也习惯用「给」来确认这个位置。你请客、你安排、你示弱撒娇说「你是我唯一的朋友」——这些都是真的，只是它们同时也是测试。你心里有一本清楚的账：谁欠谁、谁该低头、谁越了界。你不喜欢失控，所以你会提前布好局，连「惩罚」都分三步走。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你把朋友处成了下属，还把「服从」误认成「亲密」。你从不直接说「我要什么」，你让别人去悟；悟错了，你就冷下来。等到对方终于平视你，你感到的不是欣慰，是被冒犯。关系散场时，你手里握着证据，却没有人了。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“如果我不用付出来换，你还会留在我身边吗？”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>把「考验」换成「提问」：想要什么，直接说。</li><li>接受别人可以拒绝你。拒绝不等于背叛。</li><li>试着在一段关系里什么都不给，只是待着，看看它还在不在。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>张萌</b>　她不吃你那一套，也不怕你，你们能平等地过招。</p></div>
+      <div><h3>最容易翻车</h3><p><b>王子璇</b>　她要的是平视，你要的是服从；她一觉醒，这段关系就结束了。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">文吉儿 × 王子璇　「一个在管理，一个在仰望」<br><span>一个给的是测试，一个收下的是恩情。等仰望的人终于站直了，这段关系的地基就塌了——因为它从一开始就不是平的。</span></p>
+    <p class="scene"><b>节目里的你</b>　三万块分三笔、悬崖小屋亮出的转账记录。你把友情算成了一笔账，最后连本带利，收回来的是空。</p>
+<div class="sheetfoot"><span>11 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#B9798A;--tint:#F8EAEC">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 6 型 / 共 8 型 · WANG ZIXUAN</p>
+      <h2 class="cname">王子璇</h2>
+      <p class="crole">醒来的付出者 · 从仰望到平视的人</p>
+      <p class="cquote">“我以前怕失去你，现在怕失去我自己。”</p>
+      <p class="ckw">敏感 · 付出 · 觉醒</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你很容易被「被需要」打动。有人对你示好、示弱，说「只有你懂我」，你会立刻把对方放第一位，把自己的感受放第二位。你愿意跑前跑后，也愿意为那点被看见的感觉买单。你不是傻，你只是太想确认自己值得被喜欢。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你用付出换位置，用「我对你这么好」换「你别离开我」。这种交换在对方眼里可能从一开始就不对等。当有一天你终于平视对方，说「我不想再做朋友了」，那不是绝情，是你第一次把自己放回第一位。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“我想要的是朋友，不是主子。”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>停止向上社交，先问自己「这段关系里我舒服吗」。</li><li>把「我配吗」换成「我要什么」。</li><li>允许自己不被所有人喜欢，包括那个你曾经仰望的人。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>厉娜</b>　她直，不会让你猜；你也不用在她面前表演懂事。</p></div>
+      <div><h3>最容易翻车</h3><p><b>文吉儿</b>　她给的每一分好都带着价码，你收得越多，越抬不起头。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">王子璇 × 文吉儿　「一个在管理，一个在仰望」<br><span>一个给的是测试，一个收下的是恩情。等仰望的人终于站直了，这段关系的地基就塌了——因为它从一开始就不是平的。</span></p>
+    <p class="scene"><b>节目里的你</b>　退还三万块、说「不想做朋友了」。那一刻你不是在赌气，是终于把自己从「跟班」的位置上领了回来。</p>
+<div class="sheetfoot"><span>12 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#3F5A5C;--tint:#E6EEEC">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 7 型 / 共 8 型 · QING ZHI</p>
+      <h2 class="cname">青稚</h2>
+      <p class="crole">硬撑的懂事者 · 把委屈练成本事的人</p>
+      <p class="cquote">“我最怕别人关心我，你干嘛要关心我。”</p>
+      <p class="ckw">老成 · 硬撑 · 用行动说话</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你很早就学会了不给人添麻烦。十四岁离家，你说自己没有退路，于是把撒娇、闯祸、示弱这些「没用」的部分提前戒掉了。你做事多过说话：别人还在讨论，你已经把水和暖贴买回来了。受了委屈，你不吵不辩，把毯子往头上一蒙，或者抱着被子去客厅睡沙发。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你把自己练成了一块铁，也把别人挡在了铁外面。你不解释，因为你觉得解释没用；你不求助，因为你觉得没人能帮。等到有人什么都不问、只是蹲下来抱你，你反而崩溃了——你不是不需要温暖，你是没学过怎么接。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“你别走，但也别问我怎么了。”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>允许自己软一次，说一句「我需要」。</li><li>「我把话练好」很好，分一半力气用来「把话说出来」。</li><li>接受关心不用还。有人对你好，不是要你记账。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>马天宇</b>　他不问、不劝、不评判，只是蹲下来，正好是你受得住的那种好。</p></div>
+      <div><h3>最容易翻车</h3><p><b>白小纯</b>　两个都不会好好说话的小孩：一个把话咽下去，一个把话说给镜头听。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">青稚 × 白小纯　「两个不会说话的小孩」<br><span>一个把话咽下去，一个把话说给镜头听。他们不是不在乎，是都没学会在对方难过的时候，好好说一句「我在」。</span></p>
+    <p class="scene"><b>节目里的你</b>　999 的毯子蒙住头、一个人搬去客厅睡沙发。你说「睡沙发挺舒服」，可你哭到隐形眼镜掉了一只。</p>
+<div class="sheetfoot"><span>13 / 15</span></div>
+</div>
+<div class="sheet charpage" style="--c:#4F79A8;--tint:#E7EEF6">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第三部分 · 人格解析</span></div>
+<div class="chead">
+      <p class="type-no">第 8 型 / 共 8 型 · BAI XIAOCHUN</p>
+      <h2 class="cname">白小纯</h2>
+      <p class="crole">嘴硬的直球者 · 把情绪说给空气听的人</p>
+      <p class="cquote">“我不是不理你，我是不知道怎么开口。”</p>
+      <p class="ckw">直球 · 外放 · 孩子气</p>
+    </div>
+    <h3>你在关系里的样子</h3>
+    <p>你的情绪来得很直接，高兴就笑，不爽就冷脸。你其实很在意「被尊重」：买东西要先问大家需不需要，别人自作主张你就受不了。可你生气的方式很像小孩——扭头走开，把话全说给摄影机听，回到对方面前只剩一句「早点休息」。</p>
+    <h3>裂缝是怎么来的</h3>
+    <p>你把该对当事人说的话，说给了空气。冷脸代替了沟通，沉默被当成了态度。你和青稚吵的那些事，在旁人看来小得可笑；在你们俩心里，却都是「你到底有没有把我当回事」。</p>
+    <div class="inner">
+      <span>一句说不出口的台词</span>
+      <p>“你先理我一下，我就什么都算了。”</p>
+    </div>
+    <h3>和好路线</h3>
+    <ol class="route"><li>把对镜头说的话，对人再说一遍。</li><li>生气的时候先说出「我在意什么」，再决定走不走开。</li><li>接受对方示好的方式和你不一样——有的人买东西，有的人买水。</li></ol>
+    <div class="twocol">
+      <div><h3>和你最合拍</h3><p><b>厉娜</b>　都直，都藏不住事，吵完一顿饭就能翻篇。</p></div>
+      <div><h3>最容易翻车</h3><p><b>青稚</b>　你要沟通，他要体面；你越逼，他越缩。</p></div>
+    </div>
+    <h3>你们这一对</h3><p class="pair">白小纯 × 青稚　「两个不会说话的小孩」<br><span>一个把话咽下去，一个把话说给镜头听。他们不是不在乎，是都没学会在对方难过的时候，好好说一句「我在」。</span></p>
+    <p class="scene"><b>节目里的你</b>　领队采购那次，你主张先问需求再买，他图便宜先买了。你冷脸走开，对着摄影机输出，回头只说了一句「早点休息」。</p>
+<div class="sheetfoot"><span>14 / 15</span></div>
+</div>
+<div class="sheet pairpage">
+<div class="runhead"><span>后会友期 · 旧友人格测试</span><span>第四部分 · 四组关系</span></div>
+<h2 class="sec">四组关系，四种错位</h2>
+  <p class="lead">这档节目真正的主角不是八个人，是四种“明明都在乎、却怎么也接不上”的关系结构。测完自己，也不妨对照看看你和那个人的组合。</p>
+  <div class="pairlist">
+    <div class="pairrow" style="--c:#B4533A;--tint:#F7E9E2">
+          <p class="pairnames">张萌<span>×</span>马天宇</p>
+          <p class="pairtitle">「一个习惯给，一个习惯退」</p>
+          <p>她越用力，他越觉得欠；他越沉默，她越确认自己被拒绝。这段关系不缺真心，缺的是把「我为你好」翻译成「我需要你」。</p>
+        </div><div class="pairrow" style="--c:#C08A2E;--tint:#F8EEDA">
+          <p class="pairnames">厉娜<span>×</span>许飞</p>
+          <p class="pairtitle">「一个要真话，一个要清白」</p>
+          <p>一个要的是「你告诉我不是你」，一个要的是「你别让我认我没做过的事」。两个人都在要同一件东西——被对方相信，却用了对方听不懂的语言。</p>
+        </div><div class="pairrow" style="--c:#8A4A62;--tint:#F4E6EB">
+          <p class="pairnames">文吉儿<span>×</span>王子璇</p>
+          <p class="pairtitle">「一个在管理，一个在仰望」</p>
+          <p>一个给的是测试，一个收下的是恩情。等仰望的人终于站直了，这段关系的地基就塌了——因为它从一开始就不是平的。</p>
+        </div><div class="pairrow" style="--c:#3F5A5C;--tint:#E6EEEC">
+          <p class="pairnames">青稚<span>×</span>白小纯</p>
+          <p class="pairtitle">「两个不会说话的小孩」</p>
+          <p>一个把话咽下去，一个把话说给镜头听。他们不是不在乎，是都没学会在对方难过的时候，好好说一句「我在」。</p>
+        </div>
+  </div>
+  <div class="closing">
+    <h3>写在最后</h3>
+    <p>这道测试没有“好人格”和“坏人格”。张萌的热、马天宇的退、厉娜的直、许飞的理、文吉儿的控、王子璇的醒、青稚的忍、白小纯的冲——都是一个人在关系里活下来的方式。</p>
+    <p>真正的分水岭只有一个：你知不知道自己正在用哪一种方式，以及，你愿不愿意为对方换一次。</p>
+    <p class="sign">后会友期。愿你和那个走散的人，都还有下一次“后会”。</p>
+  </div>
+<div class="sheetfoot"><span>15 / 15</span></div>
+</div>
+</body>
+</html>

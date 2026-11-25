@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F4ECDF" />
+<title>后会友期 · 旧友人格测试</title>
+<meta name="description" content="16 道题，测出你是《后会友期》里的谁：你的旧友人格、你的裂缝，以及一条具体的和好路线。" />
+<style>
+  :root {
+    --paper: #F4ECDF;
+    --card: #FCF7ED;
+    --ink: #201B16;
+    --ink-2: #4E443A;
+    --muted: #6B5F52;
+    --faint: #9A8D7E;
+    --line: rgba(32, 27, 22, 0.13);
+    --accent: #B4533A;
+    --serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif;
+    --sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+    --shadow: 0 18px 50px -24px rgba(46, 35, 22, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(80rem 52rem at 6% -10%, #FDF5E6 0%, rgba(253, 245, 230, 0) 58%),
+      radial-gradient(58rem 40rem at 106% 2%, #EBDDCA 0%, rgba(235, 221, 202, 0) 55%),
+      var(--paper);
+    background-attachment: fixed;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  .skip {
+    position: absolute; left: 12px; top: -60px; z-index: 60;
+    background: var(--ink); color: #FBF6EC; padding: 10px 16px; border-radius: 8px;
+    text-decoration: none; font-size: 13px; transition: top .2s;
+  }
+  .skip:focus { top: 12px; }
+
+  .top {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--paper) 76%, transparent);
+    backdrop-filter: blur(14px) saturate(1.1);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+    border-bottom: 1px solid rgba(32, 27, 22, 0.06);
+  }
+  .top-inner {
+    width: min(880px, 100% - 40px); margin-inline: auto;
+    height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: none; border: 0; padding: 0; cursor: pointer;
+    font: inherit; font-size: 12px; letter-spacing: 0.2em; color: var(--muted);
+  }
+  .brand i {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+  .nav { display: flex; align-items: center; gap: 4px; }
+  .navlink {
+    background: none; border: 0; cursor: pointer; font: inherit;
+    font-size: 12.5px; letter-spacing: 0.08em; color: var(--muted);
+    padding: 8px 12px; border-radius: 99px; transition: background .2s, color .2s;
+  }
+  .navlink:hover { background: rgba(32, 27, 22, 0.06); color: var(--ink); }
+  .navlink.on { color: var(--ink); background: rgba(32, 27, 22, 0.07); }
+  .navlink[hidden] { display: none; }
+
+  main { position: relative; z-index: 1; }
+  .wrap { width: min(760px, 100% - 40px); margin-inline: auto; }
+  .view { display: none; }
+  .view.active { display: block; animation: viewIn .5s cubic-bezier(.22, .9, .24, 1) both; }
+  @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  /* ── intro ─────────────────────────────── */
+  .hero { padding: clamp(38px, 8vh, 84px) 0 8px; position: relative; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 11.5px; letter-spacing: 0.26em; color: var(--faint);
+  }
+  .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .7; }
+  h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(56px, 12.5vw, 112px); line-height: 1; letter-spacing: 0.05em;
+    margin: 22px 0 0; text-wrap: balance;
+  }
+  h1 .hit { color: var(--accent); }
+  .hero-sub {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(20px, 3.6vw, 30px); letter-spacing: 0.4em;
+    color: var(--ink-2); margin: 16px 0 0; padding-left: 0.4em;
+  }
+  .hero-lead {
+    font-family: var(--serif); font-size: clamp(17px, 2.3vw, 20px); line-height: 1.95;
+    color: var(--muted); margin: 26px 0 0; max-width: 32ch;
+  }
+  .intro-body { margin-top: 34px; display: grid; gap: 14px; max-width: 46em; }
+  .intro-body p { margin: 0; font-size: 14.5px; line-height: 2; color: var(--muted); }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .meta span {
+    font-size: 11.5px; letter-spacing: 0.1em; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 99px; padding: 6px 13px;
+    background: rgba(255, 255, 255, 0.42);
+  }
+  .cta { margin-top: 34px; display: flex; align-items: center; flex-wrap: wrap; gap: 18px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font: inherit; font-size: 14px; letter-spacing: 0.06em;
+    padding: 13px 22px; border-radius: 999px;
+    border: 1px solid var(--line); background: rgba(255, 255, 255, 0.5); color: var(--ink);
+    cursor: pointer; transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+  }
+  .btn:hover { transform: translateY(-1px); border-color: rgba(32, 27, 22, 0.28); box-shadow: 0 10px 26px -18px rgba(32, 27, 22, .6); }
+  .btn:active { transform: translateY(0); }
+  .btn.primary {
+    background: var(--ink); color: #F9F2E5; border-color: var(--ink);
+    padding: 16px 30px; font-size: 15px;
+  }
+  .btn.primary:hover { background: #2E251C; }
+  .btn .arw { transition: transform .2s; }
+  .btn.primary:hover .arw { transform: translateX(3px); }
+  .linkbtn {
+    background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
+    font-size: 13px; color: var(--muted); border-bottom: 1px solid rgba(32, 27, 22, 0.25);
+    padding-bottom: 2px; transition: color .2s, border-color .2s;
+  }
+  .linkbtn:hover { color: var(--ink); border-color: var(--ink); }
+
+  .ticket {
+    margin-top: 52px; display: flex; align-items: center; flex-wrap: wrap; gap: 14px;
+    border: 1px dashed rgba(32, 27, 22, 0.25); border-radius: 12px;
+    padding: 14px 18px; background: rgba(255, 252, 244, 0.45);
+    font-size: 11.5px; letter-spacing: 0.16em; color: var(--faint);
+  }
+  .ticket b { font-weight: 500; color: var(--muted); }
+  .ticket .sep { width: 1px; height: 14px; background: var(--line); }
+
+  .know { margin-top: clamp(52px, 9vh, 84px); }
+  .know h2, .sec-title {
+    font-family: var(--serif); font-size: 15px; font-weight: 600; letter-spacing: 0.2em;
+    color: var(--ink-2); margin: 0 0 18px; display: flex; align-items: center; gap: 12px;
+  }
+  .know h2::after, .sec-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .know ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .know li {
+    background: rgba(255, 252, 244, 0.55); border: 1px solid var(--line);
+    border-radius: 16px; padding: 18px 18px 16px;
+  }
+  .know b { display: block; font-family: var(--serif); font-size: 16.5px; font-weight: 600; margin-bottom: 6px; }
+  .know span { font-size: 12.5px; line-height: 1.75; color: var(--muted); }
+  .note {
+    margin-top: 44px; font-size: 11.5px; line-height: 1.9; color: var(--faint);
+    border-top: 1px solid var(--line); padding-top: 18px; max-width: 60em;
+  }
+
+  /* ── quiz ──────────────────────────────── */
+  .quiz { padding: clamp(22px, 5vh, 46px) 0 72px; min-height: calc(100dvh - 58px); display: flex; flex-direction: column; justify-content: flex-start; }
+  .qhead { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
+  .back {
+    flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid var(--line); background: rgba(255, 255, 255, 0.4); color: var(--ink-2);
+    display: grid; place-items: center; cursor: pointer; transition: background .2s, opacity .2s, transform .2s;
+  }
+  .back:hover:not(:disabled) { background: rgba(255, 255, 255, 0.9); transform: translateX(-2px); }
+  .back:disabled { opacity: 0.28; cursor: default; }
+  .track { flex: 1; height: 3px; border-radius: 99px; background: rgba(32, 27, 22, 0.1); overflow: hidden; }
+  .track i { display: block; height: 100%; border-radius: 99px; background: var(--ink); transition: width .4s cubic-bezier(.3, .9, .3, 1); }
+  .qcount { font-size: 11.5px; letter-spacing: 0.12em; color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .qcard.in { animation: qIn .45s cubic-bezier(.22, .9, .24, 1) both; }
+  @keyframes qIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+  .chapter { font-size: 11.5px; letter-spacing: 0.24em; color: var(--accent); }
+  .chapter-sub { font-size: 12px; letter-spacing: 0.02em; color: var(--faint); margin-top: 6px; }
+  .qtext {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(21px, 3.2vw, 29px); line-height: 1.62; letter-spacing: 0.01em;
+    margin: 18px 0 28px; text-wrap: balance;
+  }
+  .options { display: grid; gap: 11px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 15px; width: 100%;
+    text-align: left; font: inherit; font-size: 14.5px; line-height: 1.72; color: var(--ink-2);
+    background: rgba(255, 252, 244, 0.62); border: 1px solid var(--line);
+    border-radius: 16px; padding: 17px 18px; cursor: pointer;
+    transition: background .22s, border-color .22s, color .22s, transform .22s, box-shadow .22s;
+  }
+  .opt .key {
+    flex: 0 0 25px; height: 25px; margin-top: 1px; border-radius: 50%;
+    border: 1px solid rgba(32, 27, 22, 0.22); display: grid; place-items: center;
+    font-size: 11px; color: var(--muted); font-family: var(--sans);
+    transition: background .22s, color .22s, border-color .22s;
+  }
+  .opt:hover { border-color: rgba(32, 27, 22, 0.32); background: #FFFCF4; transform: translateY(-1px); box-shadow: 0 12px 28px -22px rgba(32, 27, 22, .8); }
+  .opt.sel { background: var(--ink); color: #F7F0E3; border-color: var(--ink); }
+  .opt.sel .key { background: rgba(255, 255, 255, 0.14); color: #F7F0E3; border-color: rgba(255, 255, 255, 0.28); }
+  .hint { margin-top: 22px; font-size: 11px; letter-spacing: 0.12em; color: var(--faint); text-align: center; }
+
+  /* ── result ────────────────────────────── */
+  .result { padding: 34px 0 90px; }
+  .rhero {
+    position: relative; overflow: hidden;
+    border-radius: 26px; padding: 32px 28px 28px;
+    background: var(--tint);
+    border: 1px solid color-mix(in srgb, var(--c) 20%, transparent);
+    box-shadow: 0 30px 70px -50px rgba(32, 27, 22, .8);
+  }
+  .rhero::after {
+    content: ""; position: absolute; right: -70px; top: -80px; width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--c) 16%, transparent), transparent 68%);
+    pointer-events: none;
+  }
+  .rno { font-size: 11px; letter-spacing: 0.26em; color: var(--c); opacity: .9; }
+  .rname {
+    font-family: var(--serif); font-weight: 600; letter-spacing: 0.04em;
+    font-size: clamp(42px, 9vw, 62px); line-height: 1.1; margin: 10px 0 0; color: var(--c);
+  }
+  .rrole { margin-top: 6px; font-size: 13px; letter-spacing: 0.2em; color: var(--ink-2); }
+  .rquote {
+    font-family: var(--serif); font-size: clamp(16px, 2.4vw, 19px); line-height: 1.85;
+    margin: 20px 0 0; padding-left: 15px; border-left: 2px solid color-mix(in srgb, var(--c) 55%, transparent);
+    color: var(--ink);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+  .chip {
+    font-size: 11.5px; letter-spacing: 0.06em; padding: 5px 12px; border-radius: 99px;
+    background: rgba(255, 255, 255, 0.55); color: var(--c);
+    border: 1px solid color-mix(in srgb, var(--c) 18%, transparent);
+  }
+
+  .bars { margin-top: 28px; display: grid; gap: 9px; }
+  .bars-cap { display: flex; justify-content: space-between; font-size: 10.5px; letter-spacing: 0.14em; color: var(--faint); margin-bottom: 4px; }
+  .bar { display: grid; grid-template-columns: 58px 1fr 34px; align-items: center; gap: 12px; font-size: 12.5px; color: var(--muted); }
+  .bar .bname { color: var(--ink-2); white-space: nowrap; }
+  .bar .btrack { height: 6px; border-radius: 99px; background: rgba(32, 27, 22, 0.075); overflow: hidden; }
+  .bar .bfill { display: block; height: 100%; width: 0; border-radius: 99px; transition: width 1s cubic-bezier(.2, .85, .25, 1); }
+  .bar .bval { text-align: right; font-size: 11.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .bar.top .bname { color: var(--ink); font-weight: 600; }
+  .bar.top .bval { color: var(--ink-2); }
+  .second { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
+  .second b { color: var(--ink); font-weight: 600; }
+
+  .panel {
+    margin-top: 16px; padding: 24px; border-radius: 20px;
+    background: rgba(255, 252, 244, 0.62); border: 1px solid var(--line);
+  }
+  .label { display: flex; align-items: center; gap: 9px; font-size: 10.5px; letter-spacing: 0.24em; color: var(--faint); margin-bottom: 13px; }
+  .label::before { content: ""; width: 16px; height: 1px; background: currentColor; }
+  .panel p { margin: 0; font-size: 14.5px; line-height: 1.95; color: var(--ink-2); }
+  .inner-quote {
+    margin: 0; font-family: var(--serif); font-size: clamp(18px, 2.6vw, 21px);
+    line-height: 1.85; color: var(--ink);
+  }
+  .route { list-style: none; margin: 0; padding: 0; display: grid; gap: 13px; }
+  .route li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; font-size: 14px; line-height: 1.85; color: var(--ink-2); }
+  .route b {
+    width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--tint); color: var(--c); font-family: var(--serif); font-size: 12px; font-weight: 600;
+  }
+
+  .pairline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; font-family: var(--serif); font-size: 22px; color: var(--ink); }
+  .pairline .x { font-size: 13px; color: var(--faint); font-family: var(--sans); }
+  .pairline .ptag { font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.18em; color: var(--faint); border: 1px solid var(--line); border-radius: 99px; padding: 3px 9px; }
+  .pairnote { margin-top: 12px; font-size: 13.5px; line-height: 1.9; color: var(--muted); }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .mini { padding: 20px; border-radius: 18px; background: rgba(255, 252, 244, 0.62); border: 1px solid var(--line); }
+  .mini .label { margin-bottom: 10px; }
+  .mini b { display: block; font-family: var(--serif); font-size: 17px; margin-bottom: 6px; }
+  .mini p { margin: 0; font-size: 12.5px; line-height: 1.8; color: var(--muted); }
+
+  .scene { font-size: 13.5px; line-height: 1.95; color: var(--muted); }
+  .scene small { display: block; margin-top: 10px; font-size: 10.5px; color: var(--faint); letter-spacing: 0.04em; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+
+  /* ── dex ───────────────────────────────── */
+  .dexpage { padding: 40px 0 90px; }
+  .dexhead h2 { font-family: var(--serif); font-size: clamp(30px, 5vw, 40px); margin: 0 0 10px; letter-spacing: 0.03em; }
+  .dexhead p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.9; max-width: 48em; }
+  .dexgrid { display: grid; gap: 11px; margin-top: 28px; }
+  .dex {
+    border-radius: 18px; border: 1px solid var(--line);
+    background: rgba(255, 252, 244, 0.58); overflow: hidden;
+    transition: border-color .2s, background .2s;
+  }
+  .dex[open] { background: rgba(255, 252, 244, 0.85); border-color: color-mix(in srgb, var(--c) 26%, transparent); }
+  .dex summary {
+    list-style: none; cursor: pointer; padding: 17px 19px;
+    display: flex; flex-direction: column; gap: 7px; position: relative;
+  }
+  .dex summary::-webkit-details-marker { display: none; }
+  .dex summary::after {
+    content: ""; position: absolute; right: 20px; top: 24px;
+    width: 7px; height: 7px; border-right: 1px solid var(--faint); border-bottom: 1px solid var(--faint);
+    transform: rotate(45deg); transition: transform .25s;
+  }
+  .dex[open] summary::after { transform: rotate(-135deg); }
+  .dline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; padding-right: 26px; }
+  .dno { font-size: 10.5px; letter-spacing: 0.16em; color: var(--faint); }
+  .dname { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--c); letter-spacing: 0.03em; }
+  .drole { font-size: 11px; letter-spacing: 0.14em; color: var(--muted); }
+  .dquote { font-family: var(--serif); font-size: 13.5px; color: var(--muted); padding-right: 30px; }
+  .dbody { padding: 4px 19px 22px; }
+  .dbody h4 { font-size: 10.5px; letter-spacing: 0.22em; color: var(--faint); font-weight: 500; margin: 18px 0 7px; }
+  .dbody p { margin: 0; font-size: 13.5px; line-height: 1.9; color: var(--ink-2); }
+  .dbody blockquote {
+    margin: 0; font-family: var(--serif); font-size: 16px; line-height: 1.8; color: var(--ink);
+    padding-left: 12px; border-left: 2px solid color-mix(in srgb, var(--c) 45%, transparent);
+  }
+  .dbody ol { margin: 0; padding-left: 1.2em; font-size: 13px; line-height: 1.9; color: var(--ink-2); }
+  .dbody ol li { margin-bottom: 4px; }
+  .dmeta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .dmeta span { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 3px 10px; background: rgba(255, 255, 255, .45); }
+
+  /* ── misc ──────────────────────────────── */
+  .foot {
+    position: relative; z-index: 1; border-top: 1px solid var(--line);
+    padding: 26px 0 40px; margin-top: 40px;
+    font-size: 11px; letter-spacing: 0.06em; color: var(--faint); line-height: 1.9;
+  }
+  .footlink { color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(32, 27, 22, .25); padding-bottom: 1px; }
+  .footlink:hover { color: var(--ink); border-color: var(--ink); }
+  .foot .dot { opacity: .5; margin: 0 6px; }
+  .toast {
+    position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 16px);
+    background: var(--ink); color: #F9F2E5; font-size: 12.5px; letter-spacing: 0.04em;
+    padding: 11px 20px; border-radius: 99px; opacity: 0; pointer-events: none;
+    transition: opacity .25s, transform .25s; z-index: 80; max-width: calc(100vw - 40px);
+  }
+  .toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  @media (max-width: 680px) {
+    .know ol { grid-template-columns: 1fr; }
+    .two { grid-template-columns: 1fr; }
+    .hero { padding-top: 34px; }
+    .rhero { padding: 26px 22px 24px; border-radius: 22px; }
+    .panel { padding: 20px; }
+    .bar { grid-template-columns: 50px 1fr 30px; gap: 10px; }
+    .ticket { font-size: 10.5px; letter-spacing: 0.1em; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    body::before { display: none; }
+    .top, .actions, .hint, .foot { display: none !important; }
+    .view { display: block !important; }
+    .rhero, .panel, .mini { break-inside: avoid; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="top">
+  <div class="top-inner">
+    <button class="brand" data-action="home" type="button"><i></i>后会友期 · 旧友人格测试</button>
+    <nav class="nav">
+      <button class="navlink" data-action="start" type="button" id="nav-start">开始测试</button>
+      <button class="navlink" data-action="dex" type="button" id="nav-dex">角色图鉴</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <!-- 封面 -->
+  <section class="view active" id="v-intro">
+    <div class="wrap">
+      <div class="hero">
+        <p class="eyebrow">非官方二创 · 八种旧友人格 · 十六道题</p>
+        <h1>后会<span class="hit">友</span>期</h1>
+        <p class="hero-sub">旧友人格测试</p>
+        <p class="hero-lead">你们是怎么走散的，<br />又该怎么走回来。</p>
+
+        <div class="intro-body">
+          <p>《后会友期》把四对断了联系的旧友放进同一趟高原旅行：收手机、低经费、不劝分也不劝和。有人当场翻脸，有人抱头痛哭，有人终于把十年前那句话说了出去。</p>
+          <p>我们把这八个人拆成八种「旧友人格」。不是给你贴标签，而是帮你看清：你在关系里习惯站在哪个位置，你的裂缝从哪里开始，以及——如果要走回去，第一步该迈向哪里。</p>
+        </div>
+
+        <div class="meta">
+          <span>16 道题</span><span>约 4 分钟</span><span>8 种人格</span><span>附完整解析</span>
+        </div>
+
+        <div class="cta">
+          <button class="btn primary" data-action="start" type="button">开始测试 <span class="arw">→</span></button>
+          <button class="linkbtn" data-action="dex" type="button">先看看这 8 个人</button>
+        </div>
+
+        <div class="ticket">
+          <b>旧友专列</b><span class="sep"></span><span>此站 → 彼站</span><span class="sep"></span><span>有效期 · 到你想通为止</span>
+        </div>
+
+        <div class="know">
+          <h2>测完你会知道</h2>
+          <ol>
+            <li><b>你的默认姿势</b><span>先伸手、先退后，还是先在心里算一笔账。</span></li>
+            <li><b>你的裂缝在哪里</b><span>不是不爱，是爱的方式和对方接收的方式错位。</span></li>
+            <li><b>一句说不出口的台词</b><span>那些在喉咙里卡了很多年的话。</span></li>
+            <li><b>一条和好路线</b><span>具体到下一步能做什么，而不是「多沟通」。</span></li>
+          </ol>
+        </div>
+
+        <p class="note">本测试为非官方二创，与节目及嘉宾无关。人格设定基于节目公开播出的片段与公开讨论，指向关系类型，不构成对任何真实个人的评价，也不构成心理诊断。结果仅供娱乐与自我观察。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 答题 -->
+  <section class="view" id="v-quiz">
+    <div class="wrap quiz">
+      <div class="qhead">
+        <button class="back" id="q-back" type="button" aria-label="上一题">←</button>
+        <div class="track"><i id="q-fill"></i></div>
+        <span class="qcount" id="q-count">01 / 16</span>
+      </div>
+      <div class="qcard" id="q-card">
+        <p class="chapter" id="q-chapter"></p>
+        <p class="chapter-sub" id="q-chapter-sub"></p>
+        <h2 class="qtext" id="q-text" aria-live="polite"></h2>
+        <div class="options" id="q-options"></div>
+        <p class="hint">按 A–D 或 1–4 选择 · ← 返回上一题</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 结果 -->
+  <section class="view" id="v-result">
+    <div class="wrap result" id="result-body"></div>
+  </section>
+
+  <!-- 图鉴 -->
+  <section class="view" id="v-dex">
+    <div class="wrap dexpage">
+      <div class="dexhead">
+        <p class="eyebrow">八种旧友人格</p>
+        <h2>他们不是八种人，<br />是八种关系里的姿势。</h2>
+        <p>节目把四对旧友放进同一趟旅行，真正的看点不是谁对谁错，而是每个人在关系里下意识站的位置。点开任意一位，可以看到他的关系模式、裂缝、说不出口的那句话，以及一条和好路线。</p>
+      </div>
+      <div class="dexgrid" id="dex-grid"></div>
+      <div class="actions">
+        <button class="btn primary" data-action="start" type="button">去测测我是谁 <span class="arw">→</span></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    非官方二创 · 仅供娱乐与自我观察 · 与节目及嘉宾无关
+    <span class="dot">·</span>
+    <a class="footlink" href="后会友期-旧友人格测试（印刷版）.pdf">印刷版 PDF</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>window.__QUIZ_DATA__ = __DATA__;</script>
+<script>
+(function () {
+  "use strict";
+  var DATA = window.__QUIZ_DATA__;
+  var CHARS = DATA.characters;
+  var QS = DATA.questions;
+  var PAIRS = DATA.pairs;
+  var CH = Object.create(null);
+  CHARS.forEach(function (c) { CH[c.id] = c; });
+
+  var MAX = 24;
+  var LETTERS = ["A", "B", "C", "D"];
+  var root = document.documentElement;
+
+  var state = {
+    view: "intro",
+    idx: 0,
+    answers: new Array(QS.length).fill(null),
+    locked: false,
+    result: null
+  };
+
+  function el(id) { return document.getElementById(id); }
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+  function setView(name) {
+    state.view = name;
+    var views = document.querySelectorAll(".view");
+    for (var i = 0; i < views.length; i++) {
+      views[i].classList.toggle("active", views[i].id === "v-" + name);
+    }
+    el("nav-start").hidden = name === "quiz";
+    el("nav-dex").classList.toggle("on", name === "dex");
+    root.dataset.view = name;
+    window.scrollTo({ top: 0, behavior: "auto" });
+    if (name === "quiz") renderQuiz();
+    if (name === "result") renderResult();
+    if (name === "dex") renderDex();
+  }
+
+  /* ── 答题 ───────────────────────────── */
+  function renderQuiz() {
+    var i = state.idx;
+    var q = QS[i];
+    var ch = DATA.chapters[q.chapter];
+    el("q-chapter").textContent = ch.name;
+    el("q-chapter-sub").textContent = ch.sub;
+    el("q-count").textContent = pad(i + 1) + " / " + QS.length;
+    el("q-fill").style.width = ((i + 1) / QS.length * 100) + "%";
+    el("q-text").textContent = q.text;
+    el("q-back").disabled = i === 0;
+
+    var html = "";
+    for (var k = 0; k < q.options.length; k++) {
+      html += '<button class="opt" type="button" data-i="' + k + '">' +
+        '<span class="key">' + LETTERS[k] + "</span>" +
+        '<span class="txt">' + q.options[k].text + "</span></button>";
+    }
+    el("q-options").innerHTML = html;
+
+    var card = el("q-card");
+    card.classList.remove("in");
+    void card.offsetWidth;
+    card.classList.add("in");
+  }
+
+  function choose(k) {
+    if (state.locked || state.view !== "quiz") return;
+    state.locked = true;
+    state.answers[state.idx] = k;
+    var btns = el("q-options").querySelectorAll(".opt");
+    for (var i = 0; i < btns.length; i++) btns[i].classList.toggle("sel", i === k);
+    window.setTimeout(function () {
+      state.locked = false;
+      if (state.idx < QS.length - 1) {
+        state.idx++;
+        renderQuiz();
+      } else {
+        finish();
+      }
+    }, 280);
+  }
+
+  function finish() {
+    state.result = tally();
+    setView("result");
+  }
+
+  function tally() {
+    var score = Object.create(null);
+    var hits = Object.create(null);
+    CHARS.forEach(function (c) { score[c.id] = 0; hits[c.id] = 0; });
+    QS.forEach(function (q, i) {
+      var k = state.answers[i];
+      if (k == null) return;
+      var w = q.options[k].w;
+      Object.keys(w).forEach(function (id) {
+        score[id] += w[id];
+        if (w[id] === 2) hits[id] += 1;
+      });
+    });
+    var seed = state.answers.join("-");
+    function hash(str) {
+      var h = 2166136261;
+      for (var i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+    var ranked = CHARS.slice().sort(function (a, b) {
+      return (score[b.id] - score[a.id]) || (hits[b.id] - hits[a.id]) ||
+        (hash(seed + a.id) - hash(seed + b.id)) || (a.no - b.no);
+    });
+    return { score: score, hits: hits, ranked: ranked };
+  }
+
+  /* ── 结果 ───────────────────────────── */
+  function renderResult() {
+    var res = state.result || tally();
+    var top = res.ranked[0];
+    var second = res.ranked[1];
+    var score = res.score;
+    var pair = null;
+    for (var i = 0; i < PAIRS.length; i++) {
+      if (PAIRS[i].a === top.id || PAIRS[i].b === top.id) { pair = PAIRS[i]; break; }
+    }
+    var partner = pair ? CH[pair.a === top.id ? pair.b : pair.a] : null;
+    var best = CH[top.best.id];
+    var clash = CH[top.clash.id];
+    var topScore = score[top.id];
+
+    var bars = res.ranked.map(function (c) {
+      var s = score[c.id];
+      var pct = Math.max(3, s / MAX * 100);
+      return '<div class="bar' + (c.id === top.id ? " top" : "") + '">' +
+        '<span class="bname">' + c.name + "</span>" +
+        '<span class="btrack"><i class="bfill" style="--w:' + pct.toFixed(1) + '%;background:' + c.color + '"></i></span>' +
+        '<span class="bval">' + s + "</span></div>";
+    }).join("");
+
+    var route = top.route.map(function (t, i) {
+      return "<li><b>" + (i + 1) + "</b><span>" + t + "</span></li>";
+    }).join("");
+
+    var pairHtml = pair ? (
+      '<div class="panel" style="--c:' + top.color + ";--tint:" + top.tint + '">' +
+        '<div class="label">你们这一对</div>' +
+        '<div class="pairline">' + top.name + '<span class="x">×</span>' + partner.name +
+          '<span class="ptag">节目原配组合</span></div>' +
+        '<p class="pairnote">「' + pair.title + '」——' + pair.note + "</p>" +
+      "</div>"
+    ) : "";
+
+    el("result-body").innerHTML =
+      '<div class="rhero" style="--c:' + top.color + ";--tint:" + top.tint + '">' +
+        '<div class="rno">第 ' + top.no + " 型 / 共 8 型</div>" +
+        '<div class="rname">' + top.name + "</div>" +
+        '<div class="rrole">' + top.role + " · " + top.tag + "</div>" +
+        '<p class="rquote">“' + top.quote + '”</p>' +
+        '<div class="chips">' + top.keywords.map(function (k) { return '<span class="chip">' + k + "</span>"; }).join("") + "</div>" +
+      "</div>" +
+
+      '<div class="bars">' +
+        '<div class="bars-cap"><span>匹配分布</span><span>满分 ' + MAX + " 分</span></div>" + bars +
+      "</div>" +
+      '<p class="second">你的第二人格是 <b>' + second.name + " · " + second.role + "</b>（" + score[second.id] + " 分）。" +
+        "分数越高，说明你的选择越像这个人；最高分 " + topScore + " 分。</p>" +
+
+      '<div class="panel"><div class="label">你在关系里的样子</div><p>' + top.portrait + "</p></div>" +
+      '<div class="panel"><div class="label">裂缝是怎么来的</div><p>' + top.crack + "</p></div>" +
+      '<div class="panel"><div class="label">一句你说不出口的台词</div><blockquote class="inner-quote">“' + top.inner + "”</blockquote></div>" +
+      '<div class="panel" style="--c:' + top.color + ";--tint:" + top.tint + '"><div class="label">和好路线</div><ol class="route">' + route + "</ol></div>" +
+      pairHtml +
+      '<div class="two">' +
+        '<div class="mini" style="--c:' + top.color + ";--tint:" + top.tint + '"><div class="label">和你最合拍</div><b>' + best.name + "</b><p>" + top.best.note + "</p></div>" +
+        '<div class="mini"><div class="label">最容易和你翻车</div><b>' + clash.name + "</b><p>" + top.clash.note + "</p></div>" +
+      "</div>" +
+      '<div class="panel"><div class="label">节目里的你</div><p class="scene">' + top.scene +
+        "<small>※ 节目片段为公开讨论中的描述，仅作类型参照。</small></p></div>" +
+
+      '<div class="actions">' +
+        '<button class="btn primary" type="button" data-action="copy">复制结果文案</button>' +
+        '<button class="btn" type="button" data-action="again">再测一次</button>' +
+        '<button class="btn" type="button" data-action="dex">看看另外 7 种人格</button>' +
+      "</div>";
+
+    el("result-body").setAttribute("tabindex", "-1");
+    el("result-body").focus({ preventScroll: true });
+
+    // 条形图入场
+    window.requestAnimationFrame(function () {
+      window.setTimeout(function () {
+        var fills = document.querySelectorAll("#result-body .bfill");
+        for (var i = 0; i < fills.length; i++) {
+          fills[i].style.width = fills[i].style.getPropertyValue("--w");
+        }
+      }, 60);
+    });
+  }
+
+  /* ── 图鉴 ───────────────────────────── */
+  function renderDex() {
+    var html = CHARS.map(function (c) {
+      var route = c.route.map(function (t) { return "<li>" + t + "</li>"; }).join("");
+      return '<details class="dex" style="--c:' + c.color + ";--tint:" + c.tint + '">' +
+        "<summary>" +
+          '<span class="dline"><span class="dno">' + pad(c.no) + " / 08</span>" +
+          '<span class="dname">' + c.name + "</span>" +
+          '<span class="drole">' + c.role + "</span></span>" +
+          '<span class="dquote">“' + c.quote + '”</span>' +
+        "</summary>" +
+        '<div class="dbody">' +
+          "<h4>你在关系里的样子</h4><p>" + c.portrait + "</p>" +
+          "<h4>裂缝是怎么来的</h4><p>" + c.crack + "</p>" +
+          "<h4>一句说不出口的台词</h4><blockquote>“" + c.inner + "”</blockquote>" +
+          "<h4>和好路线</h4><ol>" + route + "</ol>" +
+          '<div class="dmeta"><span>合拍 · ' + CH[c.best.id].name + "</span><span>翻车 · " + CH[c.clash.id].name + "</span></div>" +
+          "<h4>节目里的你</h4><p>" + c.scene + "</p>" +
+        "</div>" +
+      "</details>";
+    }).join("");
+    el("dex-grid").innerHTML = html;
+  }
+
+  /* ── 复制 ───────────────────────────── */
+  function resultText() {
+    var top = (state.result || tally()).ranked[0];
+    return "《后会友期》旧友人格测试 · 我是「" + top.name + " · " + top.role + "」\n" +
+      "“" + top.quote + "”\n" +
+      "关键词：" + top.keywords.join(" / ") + "\n" +
+      "和好路线：\n" + top.route.map(function (t, i) { return "  " + (i + 1) + ". " + t; }).join("\n") + "\n" +
+      "—— 你们是怎么走散的，又该怎么走回来。";
+  }
+
+  function copyResult() {
+    var text = resultText();
+    function done() { toast("已复制，去发给那个走散的人吧"); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { toast("复制失败，请手动选择文本"); }
+      document.body.removeChild(ta);
+    }
+  }
+
+  var toastTimer = null;
+  function toast(msg) {
+    var t = el("toast");
+    t.textContent = msg;
+    t.classList.add("on");
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function () { t.classList.remove("on"); }, 2200);
+  }
+
+  /* ── 事件 ───────────────────────────── */
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest("[data-action]") : null;
+    if (!t) return;
+    var action = t.getAttribute("data-action");
+    if (action === "start") {
+      state.idx = 0;
+      state.answers = new Array(QS.length).fill(null);
+      state.result = null;
+      setView("quiz");
+    } else if (action === "dex") {
+      setView("dex");
+    } else if (action === "home") {
+      setView("intro");
+    } else if (action === "again") {
+      state.idx = 0;
+      state.answers = new Array(QS.length).fill(null);
+      state.result = null;
+      setView("quiz");
+    } else if (action === "copy") {
+      copyResult();
+    }
+  });
+
+  el("q-options").addEventListener("click", function (e) {
+    var b = e.target.closest(".opt");
+    if (b) choose(Number(b.getAttribute("data-i")));
+  });
+
+  el("q-back").addEventListener("click", function () {
+    if (state.idx > 0) { state.idx--; renderQuiz(); }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (state.view !== "quiz") return;
+    var k = e.key;
+    var n = -1;
+    if (k >= "1" && k <= "4") n = Number(k) - 1;
+    else if (/^[a-dA-D]$/.test(k)) n = k.toUpperCase().charCodeAt(0) - 65;
+    if (n >= 0 && n < 4) { e.preventDefault(); choose(n); }
+    else if (k === "ArrowLeft" || k === "Backspace") {
+      e.preventDefault();
+      if (state.idx > 0) { state.idx--; renderQuiz(); }
+    }
+  });
+
+  /* ── 入口 ───────────────────────────── */
+  var params = new URLSearchParams(window.location.search);
+  var demo = params.get("demo");
+  if (demo && CH[demo]) {
+    QS.forEach(function (q, i) {
+      var bestK = 0, bestW = -1;
+      q.options.forEach(function (o, k) {
+        var w = o.w[demo] || 0;
+        if (w > bestW) { bestW = w; bestK = k; }
+      });
+      state.answers[i] = bestK;
+    });
+    finish();
+  } else if (params.get("view") === "dex") {
+    setView("dex");
+  } else if (params.get("view") === "quiz") {
+    setView("quiz");
+  }
+})();
+</script>
+</body>
+</html>
